@@ -1,12 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
+﻿using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour {
-    Camera cam;
+    protected Camera cam;
 
-    private GameObject selectedCharacter;
+    protected GameObject selectedCharacter;
 
     // Use this for initialization
     void Start() {
@@ -16,29 +13,7 @@ public class CameraBehavior : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetKey(KeyCode.W)) {
-            transform.Translate(transform.InverseTransformDirection(Vector3.forward));
-        }
-
-        if (Input.GetKey(KeyCode.A)) {
-            transform.Translate(transform.InverseTransformDirection(Vector3.left));
-        }
-
-        if (Input.GetKey(KeyCode.S)) {
-            transform.Translate(transform.InverseTransformDirection(Vector3.back));
-        }
-
-        if (Input.GetKey(KeyCode.D)) {
-            transform.Translate(transform.InverseTransformDirection(Vector3.right));
-        }
-
-        float scrollAmount = Input.GetAxis("Mouse ScrollWheel");
-
-        if (scrollAmount > 0f) {
-            transform.Translate(Vector3.forward);
-        } else if (scrollAmount < 0f) {
-            transform.Translate(Vector3.back);
-        }
+        transform.position = (selectedCharacter.transform.position + new Vector3(-3, 5, -3));
 
         bool leftMouseButtonUp = Input.GetMouseButtonUp(0);
         bool rightMouseButtonUp = Input.GetMouseButtonUp(1);

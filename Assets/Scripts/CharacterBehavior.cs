@@ -7,12 +7,17 @@ public class CharacterBehavior : MonoBehaviour {
 
     public InventoryBehavior inventoryBehavior;
 
+    protected Item heldItem;
     protected Item pickUpTarget;
+
+    Animator animator;
 
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         inventoryBehavior = GameObject.Find("InventoryDisplay").GetComponent<InventoryBehavior>();
+
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -24,6 +29,10 @@ public class CharacterBehavior : MonoBehaviour {
 
     void SetSelected() {
         this.isSelected = true;
+    }
+
+    public void EquipItem(string itemKey) {
+
     }
 
     public void MoveTo(Vector3 destination) {
@@ -44,10 +53,11 @@ public class CharacterBehavior : MonoBehaviour {
         }
 
         if ((pickUpTarget.transform.position - transform.position).magnitude < 2) {
-            if (inventoryBehavior.AddItem(pickUpTarget)) {
+            if (inventoryBehavior.AddItem(pickUpTarget.itemKey)) {
                 Destroy(pickUpTarget.gameObject);
                 pickUpTarget = null;
             }
         }
     }
+
 }
