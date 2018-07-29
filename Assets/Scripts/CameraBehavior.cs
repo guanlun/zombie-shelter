@@ -52,7 +52,6 @@ public class CameraBehavior : MonoBehaviour {
 
                 if (leftMouseButtonUp) {
                     if (rootObjHit.name.IndexOf("Character") != -1) {
-                        //rootObjHit.SendMessage("SetSelected", true);
                         this.selectedCharacter = rootObjHit;
                     }
                 } else if (rightMouseButtonUp) {
