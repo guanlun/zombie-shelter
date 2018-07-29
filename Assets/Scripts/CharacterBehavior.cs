@@ -1,36 +1,53 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class CharacterBehavior : MonoBehaviour {
     public bool isSelected;
     NavMeshAgent agent;
 
-    public Inventory inventory;
+    public InventoryBehavior inventoryBehavior;
+
+    protected Item pickUpTarget;
 
 	// Use this for initialization
 	void Start () {
-        inventory = new Inventory();
         agent = GetComponent<NavMeshAgent>();
+        inventoryBehavior = GameObject.Find("InventoryDisplay").GetComponent<InventoryBehavior>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (pickUpTarget) {
+            TryPickUpTargetItem();
+        }
 	}
 
     void SetSelected() {
         this.isSelected = true;
     }
 
-    void MoveTo(Vector3 destination) {
+    public void MoveTo(Vector3 destination) {
         agent.SetDestination(destination);
     }
 
-    void PickUpItem(Item item) {
-        print("picking up item");
+    public void GoPickUpItem(Item item) {
+        pickUpTarget = item;
 
-        this.inventory.AddItem(item);
+        agent.SetDestination(item.transform.position);
+
+        TryPickUpTargetItem();
+    }
+
+    protected void TryPickUpTargetItem() {
+        if (!pickUpTarget) {
+            return;
+        }
+
+        if ((pickUpTarget.transform.position - transform.position).magnitude < 2) {
+            if (inventoryBehavior.AddItem(pickUpTarget)) {
+                Destroy(pickUpTarget.gameObject);
+                pickUpTarget = null;
+            }
+        }
     }
 }
