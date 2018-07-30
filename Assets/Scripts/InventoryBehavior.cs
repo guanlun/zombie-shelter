@@ -25,6 +25,7 @@ public class InventoryBehavior : MonoBehaviour {
     }
 
     public bool AddItem(string itemKey) {
+        Debug.Log(itemKey);
         for (int i = 0; i < NUM_ITEMS; i++) {
             if (string.IsNullOrEmpty(storedItemKeys[i])) {
                 storedItemKeys[i] = itemKey;

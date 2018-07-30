@@ -35,11 +35,14 @@ public class CameraBehavior : MonoBehaviour {
     protected void handleCharacterInteraction(RaycastHit hit) {
         GameObject rootObjHit = hit.transform.root.gameObject;
         Item pickableItem = rootObjHit.GetComponent<Item>();
+        WorkableItem workableItem = rootObjHit.GetComponent<WorkableItem>();
 
         CharacterBehavior selectedCharacterBehavior = selectedCharacter.GetComponent<CharacterBehavior>();
 
         if (pickableItem) {
             selectedCharacterBehavior.GoPickUpItem(pickableItem);
+        } else if (workableItem) {
+            selectedCharacterBehavior.GoWorkOnItem(workableItem);
         } else if (rootObjHit.isStatic) {
             selectedCharacterBehavior.MoveTo(hit.point);
         }

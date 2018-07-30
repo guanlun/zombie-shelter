@@ -8,7 +8,9 @@ public class CharacterBehavior : MonoBehaviour {
     public InventoryBehavior inventoryBehavior;
 
     protected Item heldItem;
+
     protected Item pickUpTarget;
+    protected WorkableItem workTarget;
 
     protected GameObject rightHand;
 
@@ -29,6 +31,8 @@ public class CharacterBehavior : MonoBehaviour {
 	void Update () {
 		if (pickUpTarget) {
             TryPickUpTargetItem();
+        } else if (workTarget) {
+            TryWorkOnItem();
         }
 	}
 
@@ -41,6 +45,9 @@ public class CharacterBehavior : MonoBehaviour {
         itemObject.transform.parent = rightHand.transform;
         itemObject.transform.localPosition = Vector3.zero;
         itemObject.transform.localRotation = Quaternion.identity;
+
+        heldItem = itemObject.GetComponent<Item>();
+        Debug.Log(heldItem);
     }
 
     public void MoveTo(Vector3 destination) {
@@ -53,6 +60,14 @@ public class CharacterBehavior : MonoBehaviour {
         agent.SetDestination(item.transform.position);
 
         TryPickUpTargetItem();
+    }
+    
+    public void GoWorkOnItem(WorkableItem workableItem) {
+        workTarget = workableItem;
+
+        agent.SetDestination(workableItem.transform.position);
+
+        TryWorkOnItem();
     }
 
     protected void TryPickUpTargetItem() {
@@ -68,4 +83,13 @@ public class CharacterBehavior : MonoBehaviour {
         }
     }
 
+    protected void TryWorkOnItem() {
+        if (!workTarget) {
+            return;
+        }
+
+        if ((workTarget.transform.position - transform.position).magnitude < 5) {
+            heldItem.ApplyOnItem(workTarget);
+        }
+    }
 }
