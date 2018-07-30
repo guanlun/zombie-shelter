@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class InventoryBehavior : MonoBehaviour {
     public const int NUM_ITEMS = 10;
     public string[] storedItemKeys = new string[NUM_ITEMS];
+    public CharacterBehavior parentCharacterBehavior;
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +12,11 @@ public class InventoryBehavior : MonoBehaviour {
         Button itemSlotImageResource = Resources.Load<Button>("UI/ItemSlotButton");
 
         for (int i = 0; i < NUM_ITEMS; i++) {
-            Button itemSlot = Instantiate(itemSlotImageResource) as Button;
+            Button itemSlot = Instantiate(itemSlotImageResource);
             itemSlot.transform.SetParent(itemButtonContainer.transform);
+
+            int itemIndex = i;
+            itemSlot.onClick.AddListener(() => OnItemButtonClick(itemIndex));
         }
 	}
 	
@@ -22,7 +26,7 @@ public class InventoryBehavior : MonoBehaviour {
 
     public bool AddItem(string itemKey) {
         for (int i = 0; i < NUM_ITEMS; i++) {
-            if (storedItemKeys[i] == null) {
+            if (string.IsNullOrEmpty(storedItemKeys[i])) {
                 storedItemKeys[i] = itemKey;
 
                 Transform itemSlotTransform = gameObject.transform.GetChild(i);
@@ -34,5 +38,9 @@ public class InventoryBehavior : MonoBehaviour {
         }
 
         return false;
+    }
+
+    void OnItemButtonClick(int buttonIndex) {
+        parentCharacterBehavior.EquipItem(storedItemKeys[buttonIndex]);
     }
 }

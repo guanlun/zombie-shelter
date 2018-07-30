@@ -10,14 +10,19 @@ public class CharacterBehavior : MonoBehaviour {
     protected Item heldItem;
     protected Item pickUpTarget;
 
+    protected GameObject rightHand;
+
     Animator animator;
 
 	// Use this for initialization
 	void Start () {
         agent = GetComponent<NavMeshAgent>();
         inventoryBehavior = GameObject.Find("InventoryDisplay").GetComponent<InventoryBehavior>();
+        inventoryBehavior.parentCharacterBehavior = this;
 
         animator = GetComponent<Animator>();
+
+        rightHand = GameObject.Find("Bip01 R Hand");
     }
 	
 	// Update is called once per frame
@@ -32,7 +37,10 @@ public class CharacterBehavior : MonoBehaviour {
     }
 
     public void EquipItem(string itemKey) {
-
+        GameObject itemObject = Instantiate(Resources.Load<GameObject>("Prefabs/" + itemKey));
+        itemObject.transform.parent = rightHand.transform;
+        itemObject.transform.localPosition = Vector3.zero;
+        itemObject.transform.localRotation = Quaternion.identity;
     }
 
     public void MoveTo(Vector3 destination) {
