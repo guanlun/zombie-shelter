@@ -47,7 +47,6 @@ public class CharacterBehavior : MonoBehaviour {
         itemObject.transform.localRotation = Quaternion.identity;
 
         heldItem = itemObject.GetComponent<Item>();
-        Debug.Log(heldItem);
     }
 
     public void MoveTo(Vector3 destination) {
@@ -89,7 +88,10 @@ public class CharacterBehavior : MonoBehaviour {
         }
 
         if ((workTarget.transform.position - transform.position).magnitude < 5) {
-            heldItem.ApplyOnItem(workTarget);
+            if (heldItem.ApplyOnItem(workTarget)) {
+                Destroy(workTarget.gameObject);
+                workTarget = null;
+            }
         }
     }
 }

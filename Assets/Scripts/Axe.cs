@@ -8,12 +8,16 @@ public class Axe : Item {
         itemKey = "item_axe";
     }
 	
-    public override void ApplyOnItem(WorkableItem item) {
+    public override bool ApplyOnItem(WorkableItem item) {
         TreeBehavior tree = item as TreeBehavior;
 
         if (tree) {
-            Destroy(tree.gameObject);
+            tree.AfterWorked();
+            
+            return true;
         }
+
+        return false;
     }
 
 	// Update is called once per frame

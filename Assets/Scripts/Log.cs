@@ -2,20 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkableItem : MonoBehaviour {
-    public string objectKey;
+public class Log : Item {
 
 	// Use this for initialization
 	void Start () {
-		
+        itemKey = "item_log";
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-    public virtual void AfterWorked() {
-
-    }
 }

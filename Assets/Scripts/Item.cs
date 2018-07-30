@@ -3,7 +3,7 @@
 public class Item : MonoBehaviour {
     public string itemKey;
 
-    public virtual void ApplyOnItem(WorkableItem item) {
-
+    public virtual bool ApplyOnItem(WorkableItem item) {
+        return false;
     }
 }
