@@ -12,7 +12,7 @@ public class CharacterBehavior : MonoBehaviour {
     protected Item pickUpTarget;
     protected WorkableItem workTarget;
 
-    protected GameObject rightHand;
+    public GameObject rightHand;
 
     Animator animator;
 
@@ -23,8 +23,7 @@ public class CharacterBehavior : MonoBehaviour {
         inventoryBehavior.parentCharacterBehavior = this;
 
         animator = GetComponent<Animator>();
-
-        rightHand = GameObject.Find("Bip01 R Hand");
+        
     }
 	
 	// Update is called once per frame

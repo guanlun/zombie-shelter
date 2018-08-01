@@ -8,7 +8,7 @@ public class CameraBehavior : MonoBehaviour {
     // Use this for initialization
     void Start() {
         cam = GetComponent<Camera>();
-        selectedCharacter = GameObject.Find("Character");
+        selectedCharacter = GameObject.Find("rover");
     }
 
     // Update is called once per frame
@@ -37,12 +37,12 @@ public class CameraBehavior : MonoBehaviour {
         Item pickableItem = rootObjHit.GetComponent<Item>();
         WorkableItem workableItem = rootObjHit.GetComponent<WorkableItem>();
 
-        CharacterBehavior selectedCharacterBehavior = selectedCharacter.GetComponent<CharacterBehavior>();
+        RoverBehavior selectedCharacterBehavior = selectedCharacter.GetComponent<RoverBehavior>();
 
         if (pickableItem) {
-            selectedCharacterBehavior.GoPickUpItem(pickableItem);
+            //selectedCharacterBehavior.GoPickUpItem(pickableItem);
         } else if (workableItem) {
-            selectedCharacterBehavior.GoWorkOnItem(workableItem);
+            //selectedCharacterBehavior.GoWorkOnItem(workableItem);
         } else if (rootObjHit.isStatic) {
             selectedCharacterBehavior.MoveTo(hit.point);
         }

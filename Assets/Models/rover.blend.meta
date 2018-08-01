@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 9bb2b3579df54ef4fb7e26dd086d2df7
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cylinder
+    100004: Cylinder_001
+    100006: Cylinder_002
+    100008: Cylinder_003
+    100010: //RootNode
+    100012: Chasis
+    100014: WheelBL
+    100016: WheelBR
+    100018: WheelFL
+    100020: WheelFR
+    100022: Arm
+    100024: ForeArm
+    100026: ArmPivot
+    100028: ForeArmPivot
+    100030: Armature
+    100032: Bone
+    100034: Bone_001
+    100036: Bone_002
+    100038: Bone_003
+    100040: Bone_004
+    100042: Chasis_001
+    100044: Chasis_002
+    100046: Chasis_003
+    100048: Chasis_004
+    100050: Bone_005
+    100052: Bone_006
+    400000: Cube
+    400002: Cylinder
+    400004: Cylinder_001
+    400006: Cylinder_002
+    400008: Cylinder_003
+    400010: //RootNode
+    400012: Chasis
+    400014: WheelBL
+    400016: WheelBR
+    400018: WheelFL
+    400020: WheelFR
+    400022: Arm
+    400024: ForeArm
+    400026: ArmPivot
+    400028: ForeArmPivot
+    400030: Armature
+    400032: Bone
+    400034: Bone_001
+    400036: Bone_002
+    400038: Bone_003
+    400040: Bone_004
+    400042: Chasis_001
+    400044: Chasis_002
+    400046: Chasis_003
+    400048: Chasis_004
+    400050: Bone_005
+    400052: Bone_006
+    2100000: unnamed
+    2100002: Material
+    2300000: Cube
+    2300002: Cylinder
+    2300004: Cylinder_001
+    2300006: Cylinder_002
+    2300008: Cylinder_003
+    2300010: Chasis
+    2300012: WheelBL
+    2300014: WheelBR
+    2300016: WheelFL
+    2300018: WheelFR
+    2300020: //RootNode
+    2300022: Arm
+    2300024: ForeArm
+    2300026: ArmPivot
+    2300028: ForeArmPivot
+    3300000: Cube
+    3300002: Cylinder
+    3300004: Cylinder_001
+    3300006: Cylinder_002
+    3300008: Cylinder_003
+    3300010: Chasis
+    3300012: WheelBL
+    3300014: WheelBR
+    3300016: WheelFL
+    3300018: WheelFR
+    3300020: //RootNode
+    3300022: Arm
+    3300024: ForeArm
+    3300026: ArmPivot
+    3300028: ForeArmPivot
+    4300000: Cylinder
+    4300002: Cube
+    4300004: Cylinder_001
+    4300006: Cylinder_003
+    4300008: Cylinder_002
+    4300010: WheelFL
+    4300012: Chasis
+    4300014: WheelFR
+    4300016: WheelBL
+    4300018: WheelBR
+    4300020: Arm
+    4300022: ForeArm
+    4300024: ArmPivot
+    4300026: ForeArmPivot
+    4300028: Chasis_004
+    4300030: Chasis_003
+    4300032: Chasis_002
+    4300034: Chasis_001
+    7400000: Default Take
+    9500000: //RootNode
+    13700000: Chasis
+    13700002: Chasis_001
+    13700004: Chasis_002
+    13700006: Chasis_003
+    13700008: Chasis_004
+    13700010: Cylinder
+    13700012: Cylinder_001
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
